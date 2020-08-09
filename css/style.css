@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap&subset=cyrillic-ext);
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:300, 400, 700&display=swap&subset=cyrillic-ext); */
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap&subset=cyrillic-ext);
 
 * {
    box-sizing: border-box;
@@ -723,11 +724,6 @@ a {
    display: none;
 }
 
-.fade {
-   animation-name: fade;
-   animation-duration: 1.5s;
-}
-
 @keyframes fade {
    form {
       opacity: 0.1;
@@ -736,4 +732,9 @@ a {
    to {
       opacity: 1;
    }
+}
+
+.fade {
+   animation-name: fade;
+   animation-duration: 1.5s;
 }

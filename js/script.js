@@ -1,44 +1,30 @@
+import tabs from './modules/tabs';
+import modal from './modules/modal';
+import timer from './modules/timer';
+import cards from './modules/menuCard';
+import calculating from './modules/calculator';
+import forms from './modules/ajaxForms';
+import slider from './modules/slider';
+import openModal from './modules/modal';
+
 document.addEventListener('DOMContentLoaded', () => {
-   const tabsContent = document.querySelectorAll('.tabcontent'),
-      parentItem = document.querySelector('.tabheader__items'),
-      tabs = document.querySelectorAll('.tabheader__item');
-   //console.log(tabcontent);
-   //console.log(tabs);
-   // console.log(parent);
 
-   function hideTabContent() {
-      tabsContent.forEach(item => {
-         //item.style.display = 'none';
-         item.classList.add('hide');
-         item.classList.remove('show', 'fade');
-      });
+   const modalTimerId = setTimeout(() => openModal('.modal', modalTimerId), 50000);
 
-      tabs.forEach(item => {
-         item.classList.remove('tabheader__item_active');
-      });
-   }
-
-   function showTabContent(i = 1) {
-      //tabsContent[i].style.display = 'block';
-      tabsContent[i].classList.add('show', 'fade');
-      tabsContent[i].classList.remove('hide');
-      tabs[i].classList.add('tabheader__item_active');
-   }
-
-   hideTabContent();
-   showTabContent();
-
-   parentItem.addEventListener('click', (event) => {
-      const target = event.target;
-
-      if (target && target.classList.contains('tabheader__item')) {
-         tabs.forEach((item, i) => {
-            if (target == item) {
-               hideTabContent();
-               showTabContent(i);
-            }
-         });
-
-      }
+   tabs('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
+   modal('[data-modal]', '.modal', modalTimerId);
+   timer('.timer', '2020-08-11');
+   cards();
+   calculating();
+   forms('form', modalTimerId);
+   slider({
+      container: '.offer__slider',
+      prevArrow: '.offer__slider-prev', 
+      slide: '.offer__slide', 
+      nextArrow: '.offer__slider-next',  
+      totalCounter: '#total', 
+      currentCounter: '#current', 
+      wrapper: '.offer__slider-wrapper', 
+      field: '.offer__slider-inner'
    });
 });
